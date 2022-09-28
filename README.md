@@ -1,2 +1,7 @@
-# primeiroa_3t
-Erick Henrique N. 12
+# Terceiro Trimestre
+
+## Identificação
+Erick Henrique - Nr. 50
+
+## Conteúdo
+HTML, CSS e JavaScript
