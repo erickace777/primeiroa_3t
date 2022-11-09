@@ -41,32 +41,36 @@ function calcula() {
     let j = document.getElementById("juros").value;
     let t = document.getElementById("meses").value;
 
-    if (!Number(c)) {
-        alert("o valor do capital deve ser numerico")
-        document.getElementById("valor").value = "";
-        document.getElementById("valor").focus();
-        return
-    }
-    if (!Number(j)) {
-        alert("o valor do juros deve ser numerico")
-        document.getElementById("juros").value = "";
-        document.getElementById("juros").focus();
-        return
+if (!Number(c)) {
+    alert("o valor do capital deve ser numerico")
+    document.getElementById("valor").value = "";
+    document.getElementById("valor").focus();
+    return
+}
+if (!Number(j)) {
+    alert("o valor do juros deve ser numerico")
+    document.getElementById("juros").value = "";
+    document.getElementById("juros").focus();
+    return
+}
+if (!Number(t)) {
+    alert("a quantidade de meses deve ser numerico")
+    document.getElementById("meses").value = "";
+    document.getElementById("meses").focus();
+    return
+}
+let r = c;
+let texto = "";
+for (let m = 1; m <= t; m++) {
+    r = c * (1 + (j / 100));
+    c = r;
+    texto +=  m + " : " + moeda(r) + "<br>"
+   // document.write("Mes " + m + " - valor: " + moeda(r) + "<br>");
 
-        if (!Number(t)) {
-            alert("o valor do meses deve ser numerico")
-            document.getElementById("meses").value = "";
-            document.getElementById("meses").focus();
-            return
-    }
-    let r = c;
-    for(let m = 1; m <= t; m++){
-         r = c * (1 + (j / 100));
-         r = r;
-         document.write("mes " + m + " - valor: " + moeda(r)+"<br>");
-    }
-    
-    document.write("resultado: " + moeda(r));
+}
+document.getElementById("listameses").innerHTML = texto;
+document.getElementById("total").innerHTML = moeda(r);
+//document.write("resultado: " + moeda(r));
 }
 
 let op = "";
